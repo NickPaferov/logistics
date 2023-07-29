@@ -1,20 +1,6 @@
-import React from 'react';
+import { RouteType } from '../businesLogicLayer/reducers/logisticsReducer';
 
-export type RouteType = {
-  key: React.Key;
-  routeName: string;
-  points: PointType[];
-};
-
-export type PointType = {
-  key: React.Key;
-  point: {
-    lat: number;
-    lng: number;
-  };
-};
-
-export const ROUTES = [
+export const ROUTES: RouteType[] = [
   {
     key: '1',
     routeName: 'Маршрут №1',

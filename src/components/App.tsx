@@ -1,12 +1,18 @@
 import React from 'react';
-import { Map } from './Map';
-import { RouteList } from './RouteList';
+import { Header } from './Header';
+import { Display } from './Display';
+import { Footer } from './Footer';
+import { Error } from './Error';
+import { Preloader } from './Preloader';
 
 export const App = () => {
   return (
-    <div style={{ display: 'flex' }}>
-      <RouteList />
-      <Map />
+    <div style={{ display: 'flex', flexDirection: 'column', maxHeight: '100vh' }}>
+      <Preloader />
+      <Error />
+      <Header />
+      <Display />
+      <Footer />
     </div>
   );
 };

@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import { useDispatch } from 'react-redux';
-import { setCurrentRouteAC } from '../reducers/routeReducer';
-import { ROUTES, RouteType } from '../constants/routes';
+import { useDispatch, useSelector } from 'react-redux';
+import { RouteType } from '../businesLogicLayer/reducers/logisticsReducer';
+import { ROUTES } from '../constants/routes';
+import { selectRouteMarkers } from '../selectors/selectors';
+import { fetchPolyline, setCurrentRouteAC, setPolylineDataAC } from '../businesLogicLayer/actions/actions';
 
 const columns: ColumnsType<RouteType> = [
   {
@@ -55,17 +57,25 @@ const columns: ColumnsType<RouteType> = [
 export const RouteList = () => {
   const dispatch = useDispatch();
 
-  // rowSelection object indicates the need for row selection
+  const markers = useSelector(selectRouteMarkers);
+
   const rowSelection = {
     onChange: (selectedRowKeys: React.Key[], selectedRows: RouteType[]) => {
-      console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
       dispatch(setCurrentRouteAC(selectedRows[0]));
+      dispatch(setPolylineDataAC(null));
     },
     getCheckboxProps: (record: RouteType) => ({
-      disabled: record.routeName === 'Disabled Route', // Column configuration not to be checked
+      disabled: record.routeName === 'Disabled Route',
       route: record.routeName,
     }),
   };
+
+  useEffect(() => {
+    if (!markers || !markers.length) return;
+    const coords = markers.map((marker) => [marker.point.lng, marker.point.lat]);
+    // @ts-ignore
+    dispatch(fetchPolyline(coords));
+  }, [markers]);
 
   return (
     <div>
