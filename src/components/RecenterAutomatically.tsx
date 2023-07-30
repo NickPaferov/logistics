@@ -1,6 +1,6 @@
 import React, { FC, useEffect } from 'react';
 import { useMap } from 'react-leaflet';
-import { ZOOM } from '../constants/zoom';
+import { resizeZoom } from '../helpers/zoom-resizer';
 
 type autoCenter = {
   lat: number;
@@ -10,8 +10,11 @@ type autoCenter = {
 export const RecenterAutomatically: FC<autoCenter> = ({ lat, lng }) => {
   const map = useMap();
 
+  const screenWidth = window.innerWidth;
+
   useEffect(() => {
-    map.setView([lat, lng], ZOOM);
-  }, [lat, lng]);
+    const zoom = resizeZoom(screenWidth);
+    map.setView([lat, lng], zoom);
+  }, [lat, lng, screenWidth]);
   return null;
 };
