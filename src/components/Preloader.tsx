@@ -1,14 +1,13 @@
 import React from 'react';
 import { Alert } from 'antd';
 import { useSelector } from 'react-redux';
-import { selectPolylineDataFetchingStatus } from '../selectors/selectors';
+import styles from '../styles/Preloader.module.scss';
+import { selectDataFetchingStatus } from '../selectors/appSelectors';
 
 export const Preloader = () => {
-  const isLoading = useSelector(selectPolylineDataFetchingStatus);
+  const isLoading = useSelector(selectDataFetchingStatus);
 
   return (
-    <div style={{ position: 'absolute', width: '35%', textAlign: 'center' }}>
-      {isLoading && <Alert message="Идёт построение маршрута" type="info" />}
-    </div>
+    <div className={styles.notification}>{isLoading && <Alert message="Идёт построение маршрута" type="info" />}</div>
   );
 };

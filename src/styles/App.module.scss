@@ -1,0 +1,7 @@
+@import './variables';
+@import './mixins';
+
+.layout {
+  @include flex(column, stretch, stretch, nowrap);
+  min-height: 100vh;
+}

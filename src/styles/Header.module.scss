@@ -1,0 +1,13 @@
+@import './variables';
+@import './mixins';
+
+.headerContainer {
+  @include flex(row, center, center, wrap);
+  background-color: $bgColor;
+  min-height: 10vh;
+
+  .title {
+    color: $textColor;
+    text-align: center;
+  }
+}

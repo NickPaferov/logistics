@@ -1,0 +1,10 @@
+@import './variables';
+
+.displayContainer {
+  display: flex;
+  gap: 10px;
+  background-color: #9bc6ff;
+  @media screen and (max-width: $maxMediaScreenWidth) {
+    flex-direction: column;
+  }
+}

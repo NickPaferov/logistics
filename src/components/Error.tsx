@@ -1,14 +1,11 @@
 import React from 'react';
 import { Alert } from 'antd';
 import { useSelector } from 'react-redux';
-import { selectError } from '../selectors/selectors';
+import { selectError } from '../selectors/appSelectors';
+import styles from '../styles/Error.module.scss';
 
 export const Error = () => {
   const error = useSelector(selectError);
 
-  return (
-    <div style={{ position: 'absolute', width: '35%', textAlign: 'center' }}>
-      {error && <Alert message={`${error}`} type="error" />}
-    </div>
-  );
+  return <div className={styles.errorContainer}>{error && <Alert message={`${error}`} type="error" />}</div>;
 };

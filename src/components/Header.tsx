@@ -1,12 +1,10 @@
 import React from 'react';
-import { Typography } from 'antd';
-
-const { Title } = Typography;
+import styles from '../styles/Header.module.scss';
 
 export const Header = () => {
   return (
-    <div style={{ textAlign: 'center' }}>
-      <Title level={2}>Логистические маршруты</Title>
+    <div className={styles.headerContainer}>
+      <h1 className={styles.title}>Логистические маршруты</h1>
     </div>
   );
 };

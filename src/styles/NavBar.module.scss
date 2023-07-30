@@ -1,0 +1,15 @@
+@import './variables';
+@import './mixins';
+
+.nav {
+  @include flex(column, center, center, wrap);
+  min-width: 35%;
+  background-color: #9bc6ff;
+
+  .title {
+    text-align: center;
+  }
+  @media screen and (max-width: $maxMediaScreenWidth) {
+    overflow: auto;
+  }
+}

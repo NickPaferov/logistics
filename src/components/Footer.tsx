@@ -1,12 +1,10 @@
 import React from 'react';
-import { Typography } from 'antd';
-
-const { Title } = Typography;
+import styles from '../styles/Footer.module.scss';
 
 export const Footer = () => {
   return (
-    <div style={{ textAlign: 'center' }}>
-      <Title level={5}>&copy; Логистические маршруты 2023</Title>
+    <div className={styles.footerContainer}>
+      <span className={styles.title}>&copy; Логистические маршруты 2023</span>
     </div>
   );
 };

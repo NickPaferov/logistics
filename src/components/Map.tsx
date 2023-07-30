@@ -4,11 +4,13 @@ import { Icon } from 'leaflet';
 import { useDispatch, useSelector } from 'react-redux';
 import { RecenterAutomatically } from './RecenterAutomatically';
 import { ZOOM } from '../constants/zoom';
-import { selectError, selectPolylineData, selectRouteMarkers } from '../selectors/selectors';
-import { PointType } from '../businesLogicLayer/reducers/logisticsReducer';
-import { setPolylineDataAC } from '../businesLogicLayer/actions/actions';
+import { PointType } from '../businesLogicLayer/reducers/routeReducer';
 import { MAP_CENTER } from '../constants/mapCenter';
 import { findCenter } from '../helpers/center-finder';
+import markerImg from '../assets/marker.png';
+import { selectPolylineData, selectRouteMarkers } from '../selectors/routeSelectors';
+import { selectError } from '../selectors/appSelectors';
+import { setPolylineDataAC } from '../businesLogicLayer/actions/routeActions';
 
 export const Map = () => {
   const dispatch = useDispatch();
@@ -30,7 +32,7 @@ export const Map = () => {
   }
 
   const customIcon = new Icon({
-    iconUrl: 'https://cdn4.iconfinder.com/data/icons/small-n-flat/24/map-marker-512.png',
+    iconUrl: `${markerImg}`,
     iconSize: [35, 35],
   });
 

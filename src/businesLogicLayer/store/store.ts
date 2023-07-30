@@ -1,10 +1,12 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import { logisticsReducer } from '../reducers/logisticsReducer';
+import { appReducer } from '../reducers/appReducer';
+import { routeReducer } from '../reducers/routeReducer';
 import { polylineWatcherSaga } from '../sagas/sagas';
 
 const rootReducer = combineReducers({
-  logistics: logisticsReducer,
+  app: appReducer,
+  route: routeReducer,
 });
 
 const sagaMiddleware = createSagaMiddleware();
@@ -13,7 +15,7 @@ export const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
 
 sagaMiddleware.run(rootWatcherSaga);
 
-export type AppRootStateType = ReturnType<typeof rootReducer>;
+export type AppRootStateType = ReturnType<typeof appReducer> & ReturnType<typeof rootReducer>;
 
 function* rootWatcherSaga() {
   yield polylineWatcherSaga();
