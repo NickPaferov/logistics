@@ -5,6 +5,7 @@
   @include flex(row, center, center, wrap);
   background-color: $bgColor;
   min-height: 10vh;
+  font-size: xx-large;
 
   .title {
     color: $textColor;

@@ -1,5 +1,6 @@
 .errorContainer {
   position: absolute;
-  width: 35%;
+  z-index: 9999999;
+  width: 100vw;
   text-align: center;
 }

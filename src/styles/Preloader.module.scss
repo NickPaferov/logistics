@@ -1,5 +1,27 @@
-.notification {
+.container {
   position: absolute;
-  width: 35%;
-  text-align: center;
+  min-height: 100vh;
+  min-width: 100vw;
+
+  .notification {
+    position: absolute;
+    z-index: 99999;
+    width: 100vw;
+    text-align: center;
+  }
+
+  .spinContainer {
+    position: relative;
+    z-index: 999;
+    background-color: black;
+    min-height: 100vh;
+    min-width: 100vw;
+    opacity: 0.7;
+
+    .spin {
+      position: absolute;
+      margin-left: 50vw;
+      margin-top: 50vh;
+    }
+  }
 }

@@ -5,6 +5,6 @@ import { setErrorAC } from '../businesLogicLayer/actions/appActions';
 export function* handleErrorSaga(error: unknown) {
   const err = error as Error | AxiosError;
   yield put(setErrorAC(err.message ? err.message : 'Some error occurred'));
-  yield delay(5000);
+  yield delay(2500);
   yield put(setErrorAC(null));
 }
