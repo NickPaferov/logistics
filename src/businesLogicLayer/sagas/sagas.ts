@@ -1,5 +1,5 @@
 import { AxiosResponse } from 'axios';
-import { call, put, takeEvery } from 'redux-saga/effects';
+import {call, delay, put, takeEvery} from 'redux-saga/effects';
 import { logisticsApi, ResponseType } from '../../HTTP-services/logistics-api';
 import { handleErrorSaga } from '../../helpers/error-handler';
 import { fetchPolyline } from '../actions/sagaActions';
@@ -11,6 +11,7 @@ export function* fetchPolylineWorkerSaga(action: ReturnType<typeof fetchPolyline
   try {
     const res: AxiosResponse<ResponseType> = yield call(logisticsApi.getPolyline, action.coords);
     const polylineData = res.data.routes[0].geometry.coordinates.map(([lng, lat]) => [lat, lng]);
+    yield delay(1000);
     // @ts-ignore
     yield put(setPolylineDataAC(polylineData));
   } catch (error) {
