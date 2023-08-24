@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import { Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { useDispatch, useSelector } from 'react-redux';
-import { RouteType } from '../businesLogicLayer/reducers/routeReducer';
+import { RouteType } from '../businessLogicLayer/reducers/routeReducer';
 import { ROUTES } from '../constants/routes';
 import styles from '../styles/RouteList.module.scss';
-import { fetchPolyline } from '../businesLogicLayer/actions/sagaActions';
+import { fetchPolyline } from '../businessLogicLayer/actions/sagaActions';
 import { selectRouteMarkers } from '../selectors/routeSelectors';
-import { setCurrentRouteAC, setPolylineDataAC } from '../businesLogicLayer/actions/routeActions';
+import { setCurrentRouteAC, setPolylineDataAC } from '../businessLogicLayer/actions/routeActions';
 
 const columns: ColumnsType<RouteType> = [
   {

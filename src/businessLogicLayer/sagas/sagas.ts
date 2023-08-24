@@ -1,5 +1,5 @@
 import { AxiosResponse } from 'axios';
-import {call, delay, put, takeEvery} from 'redux-saga/effects';
+import { call, delay, put, takeEvery } from 'redux-saga/effects';
 import { logisticsApi, ResponseType } from '../../HTTP-services/logistics-api';
 import { handleErrorSaga } from '../../helpers/error-handler';
 import { fetchPolyline } from '../actions/sagaActions';

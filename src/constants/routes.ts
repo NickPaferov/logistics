@@ -1,4 +1,4 @@
-import { RouteType } from '../businesLogicLayer/reducers/routeReducer';
+import { RouteType } from '../businessLogicLayer/reducers/routeReducer';
 
 export const ROUTES: RouteType[] = [
   {

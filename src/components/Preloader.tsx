@@ -9,7 +9,7 @@ export const Preloader = () => {
   const isLoading = useSelector(selectDataFetchingStatus);
 
   return (
-    <div className={styles.container}>
+    <div>
       {isLoading && (
         <div>
           <Alert className={styles.notification} message="Идёт построение маршрута" type="info" />

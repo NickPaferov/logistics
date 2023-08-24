@@ -4,13 +4,13 @@ import { Icon } from 'leaflet';
 import { useDispatch, useSelector } from 'react-redux';
 import { RecenterAutomatically } from './RecenterAutomatically';
 import { ZOOM } from '../constants/zoom';
-import { PointType } from '../businesLogicLayer/reducers/routeReducer';
+import { PointType } from '../businessLogicLayer/reducers/routeReducer';
 import { MAP_CENTER } from '../constants/mapCenter';
 import { findCenter } from '../helpers/center-finder';
 import markerImg from '../assets/marker.png';
 import { selectPolylineData, selectRouteMarkers } from '../selectors/routeSelectors';
 import { selectError } from '../selectors/appSelectors';
-import { setPolylineDataAC } from '../businesLogicLayer/actions/routeActions';
+import { setPolylineDataAC } from '../businessLogicLayer/actions/routeActions';
 
 export const Map = () => {
   const dispatch = useDispatch();
